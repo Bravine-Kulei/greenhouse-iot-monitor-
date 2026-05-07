@@ -1,10 +1,11 @@
 import asyncio
 import json
 import logging
+import os
 from datetime import datetime, timezone, timedelta
 
 from aiomqtt import Client, MqttError
-from sqlalchemy import select, desc
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import async_sessionmaker
 
 from models import Reading, Alert
@@ -12,9 +13,9 @@ from thresholds import check_thresholds, ALERT_COOLDOWN_SECONDS
 
 logger = logging.getLogger(__name__)
 
-BROKER_HOST = "localhost"
-BROKER_PORT = 1883
-TOPIC = "greenhouse/sensor"
+BROKER_HOST = os.getenv("MQTT_BROKER_HOST", "localhost")
+BROKER_PORT = int(os.getenv("MQTT_BROKER_PORT", "1883"))
+TOPIC = os.getenv("MQTT_TOPIC", "greenhouse/sensor")
 DEFAULT_SENSOR_ID = "zone-a"
 
 
