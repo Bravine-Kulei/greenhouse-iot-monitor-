@@ -1,3 +1,5 @@
+"""Alerts endpoint — returns threshold breach events, newest first."""
+
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, desc

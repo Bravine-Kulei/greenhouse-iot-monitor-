@@ -1,3 +1,5 @@
+"""ORM models: Reading (sensor data) and Alert (threshold breaches)."""
+
 from datetime import datetime, timezone
 from sqlalchemy import Integer, Float, Text, DateTime
 from sqlalchemy.orm import Mapped, mapped_column

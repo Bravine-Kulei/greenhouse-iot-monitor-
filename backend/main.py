@@ -1,3 +1,14 @@
+"""
+Greenhouse IoT API — FastAPI application entry point.
+
+Lifespan:
+  - Initialises the SQLite database on startup
+  - Starts the MQTT listener as an async background task
+  - Cancels the listener cleanly on shutdown
+
+CORS is open to all origins (GET only) so the React dev server can connect.
+"""
+
 import asyncio
 import logging
 from contextlib import asynccontextmanager

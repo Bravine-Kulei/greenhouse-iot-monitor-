@@ -1,3 +1,5 @@
+"""Async SQLAlchemy engine, session factory, and FastAPI dependency for the greenhouse DB."""
+
 import os
 from collections.abc import AsyncGenerator
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession

@@ -1,3 +1,5 @@
+"""Pydantic response schemas for the Greenhouse IoT API."""
+
 from datetime import datetime
 from pydantic import BaseModel
 

@@ -1,3 +1,19 @@
+"""
+MQTT listener for the greenhouse IoT backend.
+
+Subscribes to the configured MQTT topic, parses incoming sensor payloads,
+persists readings to the database, and fires threshold alerts with a
+5-minute deduplication window per sensor/metric/direction.
+
+Environment variables:
+  MQTT_BROKER_HOST  — broker hostname or IP  (default: localhost)
+  MQTT_BROKER_PORT  — broker port            (default: 1883)
+  MQTT_TOPIC        — topic to subscribe to  (default: greenhouse/sensor)
+
+Expected payload (JSON):
+  {"temp": 24.5, "hum": 61.2, "sensor_id": "zone-a"}
+"""
+
 import asyncio
 import json
 import logging

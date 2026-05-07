@@ -1,3 +1,14 @@
+"""
+Threshold constants and alert-check logic for greenhouse sensor readings.
+
+Optimal ranges (from system spec):
+  Temperature: 18°C – 28°C
+  Humidity:    40%  – 70%
+
+Alerts fire when a reading falls outside these ranges.
+Deduplication is handled separately in mqtt_listener via ALERT_COOLDOWN_SECONDS.
+"""
+
 from dataclasses import dataclass
 
 TEMP_MIN = 18.0
